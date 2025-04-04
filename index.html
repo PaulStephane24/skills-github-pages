@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truth or Dare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-header">
+            <h1 class="card-title">Truth or Dare</h1>
+            <p class="card-description">A fun game for friends</p>
+        </div>
+        
+        <div class="card-content">
+            <!-- Game Setup Screen -->
+            <div id="setup-screen" class="space-y-4">
+                <div class="tabs">
+                    <div class="tabs-list">
+                        <div class="tab-trigger active" data-players="2">
+                            <i class="icon-user"></i> 2 Players
+                        </div>
+                        <div class="tab-trigger" data-players="multi">
+                            <i class="icon-users"></i> 3+ Players
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-sm font-medium">Select Game Mode:</h3>
+                    <div class="grid grid-cols-3">
+                        <button type="button" class="btn btn-primary mode-btn" data-mode="soft">Soft</button>
+                        <button type="button" class="btn btn-outline mode-btn" data-mode="medium">Medium</button>
+                        <button type="button" class="btn btn-outline mode-btn" data-mode="hard">Hard</button>
+                    </div>
+                </div>
+                
+                <div id="two-players-form" class="space-y-2">
+                    <div class="form-group">
+                        <label for="player_name_0">Player 1 Name</label>
+                        <input type="text" id="player_name_0" class="form-control" placeholder="Player 1">
+                    </div>
+                    <div class="form-group">
+                        <label for="player_name_1">Player 2 Name</label>
+                        <input type="text" id="player_name_1" class="form-control" placeholder="Player 2">
+                    </div>
+                </div>
+                
+                <div id="multi-players-form" class="space-y-4" style="display: none;">
+                    <div id="player-inputs" class="grid grid-cols-2 gap-10">
+                        <!-- Player inputs will be generated here -->
+                    </div>
+                    
+                    <div class="player-controls">
+                        <button id="decrease-players" class="btn btn-outline">- Player</button>
+                        <span id="player-count" class="player-count">3 Players</span>
+                        <button id="increase-players" class="btn btn-outline">+ Player</button>
+                    </div>
+                </div>
+                
+                <button id="start-game" class="btn btn-primary btn-block">Start Game</button>
+            </div>
+            
+            <!-- Game Play Screen -->
+            <div id="game-screen" class="space-y-4" style="display: none;">
+                <div class="flex-center">
+                    <div id="player-avatar" class="avatar">P</div>
+                </div>
+                
+                <h3 id="player-name" class="text-center">Player's Turn</h3>
+                
+                <div class="text-center">
+                    <span id="mode-badge" class="mode-badge mode-soft">Soft Mode</span>
+                </div>
+                
+                <div id="choice-buttons" class="grid grid-cols-2 gap-10">
+                    <button id="truth-btn" class="btn btn-outline btn-lg">Truth</button>
+                    <button id="dare-btn" class="btn btn-outline btn-lg">Dare</button>
+                </div>
+                
+                <div id="task-display" class="task-card" style="display: none;">
+                    <div id="task-type" class="task-type">Truth Question</div>
+                    <div id="task-content" class="task-content"></div>
+                </div>
+                
+                <button id="next-player" class="btn btn-primary btn-block" style="display: none;">Next Player</button>
+            </div>
+        </div>
+        
+        <div class="card-footer">
+            <button id="back-to-setup" class="btn btn-outline" style="display: none;">Back to Setup</button>
+            <button id="random-player" class="btn btn-outline" style="display: none;">Random Player</button>
+        </div>
+    </div>
+    
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
